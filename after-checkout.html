@@ -34,7 +34,7 @@
       <div class="grid two">
         <article>
           <h2>Open the software</h2>
-          <p>When the public app backend is live, use your checkout email and the session ID above to unlock the workspace. Until then, contact support for access help.</p>
+          <p>Use your checkout email and the session ID above to unlock the workspace. Support is for billing or access failures only; the product is self-serve.</p>
           <p><a class="plan-link" id="appLink" href="mailto:disputedeskservice@gmail.com">Contact support</a></p>
         </article>
         <article>
@@ -56,7 +56,10 @@
       const appUrl = params.get("app_url") || "";
       if (appUrl) {
         const appLink = document.querySelector("#appLink");
-        appLink.href = appUrl;
+        const target = new URL(appUrl, window.location.href);
+        if (sessionId && !target.searchParams.has("session_id")) target.searchParams.set("session_id", sessionId);
+        if (!target.hash) target.hash = "workspace";
+        appLink.href = target.toString();
         appLink.textContent = "Open DisputeDesk";
       }
     </script>
