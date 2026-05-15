@@ -174,10 +174,16 @@ h3 {
 }
 
 .panel-row span,
+.panel-note,
 article p,
 footer {
   color: var(--muted);
   line-height: 1.5;
+}
+
+.panel-note {
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 .checklist {
@@ -223,6 +229,10 @@ article {
 article.featured {
   border-color: var(--teal);
   box-shadow: inset 0 4px 0 var(--teal);
+}
+
+.trust article {
+  background: #fbfdfd;
 }
 
 .pricing h3 {
