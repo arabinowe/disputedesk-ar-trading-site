@@ -141,6 +141,20 @@ h3 {
   background: white;
 }
 
+.plan-link {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  padding: 0 14px;
+  border-radius: var(--radius);
+  background: var(--teal);
+  color: white;
+  font-weight: 820;
+  text-decoration: none;
+}
+
 .product-panel {
   display: grid;
   gap: 14px;
