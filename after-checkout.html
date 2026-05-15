@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Checkout Complete | DisputeDesk</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span>DisputeDesk</span></a>
+      <nav aria-label="Site navigation">
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="refund.html">Refunds</a>
+      </nav>
+    </header>
+    <main class="band checkout-complete">
+      <p class="eyebrow">AR Trading</p>
+      <h1>Checkout complete.</h1>
+      <p class="lede">Thank you for subscribing to DisputeDesk. Stripe processes the payment; DisputeDesk grants software access after the Stripe checkout event is received.</p>
+
+      <article class="access-card">
+        <h2>Your access details</h2>
+        <p>Use the same email address you entered at Stripe checkout. If Stripe redirected you with a Checkout Session ID, keep it for access verification or support.</p>
+        <dl>
+          <dt>Plan</dt>
+          <dd id="planValue">DisputeDesk</dd>
+          <dt>Checkout Session ID</dt>
+          <dd id="sessionValue">Not available on this page</dd>
+        </dl>
+      </article>
+
+      <div class="grid two">
+        <article>
+          <h2>Open the software</h2>
+          <p>When the public app backend is live, use your checkout email and the session ID above to unlock the workspace. Until then, contact support for access help.</p>
+          <p><a class="plan-link" id="appLink" href="mailto:disputedeskservice@gmail.com">Contact support</a></p>
+        </article>
+        <article>
+          <h2>Important reminder</h2>
+          <p>DisputeDesk is self-serve AI-assisted software. It does not provide legal advice, processor advice, automatic processor submission, guaranteed dispute wins, or guaranteed recovered revenue.</p>
+        </article>
+      </div>
+    </main>
+    <footer>
+      <p><strong>DisputeDesk</strong> is operated by AR Trading.</p>
+      <p><a href="mailto:disputedeskservice@gmail.com">disputedeskservice@gmail.com</a></p>
+    </footer>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const sessionId = params.get("session_id") || params.get("checkout_session_id") || "";
+      const plan = params.get("plan") || "DisputeDesk";
+      document.querySelector("#planValue").textContent = plan;
+      document.querySelector("#sessionValue").textContent = sessionId || "Not available on this page";
+      const appUrl = params.get("app_url") || "";
+      if (appUrl) {
+        const appLink = document.querySelector("#appLink");
+        appLink.href = appUrl;
+        appLink.textContent = "Open DisputeDesk";
+      }
+    </script>
+  </body>
+</html>

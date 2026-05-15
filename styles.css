@@ -235,6 +235,27 @@ article.featured {
   background: #fbfdfd;
 }
 
+.access-card {
+  margin-bottom: 14px;
+}
+
+.access-card dl {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 10px;
+  margin: 18px 0 0;
+}
+
+.access-card dt {
+  color: var(--muted);
+  font-weight: 820;
+}
+
+.access-card dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
 .pricing h3 {
   font-size: 2rem;
 }
